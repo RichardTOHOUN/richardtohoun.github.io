@@ -1,353 +1,875 @@
 
-
 <!DOCTYPE html>
-
 <html lang="fr">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d18">
+<meta name="description" content="Portfolio de Richard TOHOUN, étudiant en informatique et passionné de cybersécurité.">
+<title>Richard TOHOUN — Sentinelle numérique</title>
 
-<title>Richard TOHOUN | Sentinelle numérique</title>
-
-<meta name="description" content="Site officiel de Richard TOHOUN, étudiant béninois en informatique, passionné par la cybersécurité et les technologies numériques.">
-
-<meta name="author" content="Richard TOHOUN">
-
-<meta name="theme-color" content="#101b2d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
-* {
-
-  margin: 0;
-
-  padding: 0;
-
-  box-sizing: border-box;
-
+:root {
+  --bg:#080d18;
+  --panel:#101a2a;
+  --panel2:#142137;
+  --blue:#91bfff;
+  --white:#f4f7fc;
+  --muted:#9baabd;
+  --line:rgba(190,210,240,.13);
 }
 
+* {margin:0;padding:0;box-sizing:border-box}
+html {scroll-behavior:smooth;scroll-padding-top:90px}
 body {
-
-  font-family: Arial, sans-serif;
-
-  background: #f5f7fa;
-
-  color: #182436;
-
-  line-height: 1.7;
-
+  background:var(--bg);
+  color:var(--white);
+  font-family:'DM Sans',sans-serif;
+  line-height:1.7;
 }
+a {text-decoration:none;color:inherit}
+.container {width:88%;max-width:1160px;margin:auto}
+
+/* NAVIGATION */
 
 header {
-
-  background: #101b2d;
-
-  color: white;
-
-  padding: 65px 20px;
-
-  text-align: center;
-
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(8,13,24,.88);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
 }
-
-header h1 {
-
-  font-size: 38px;
-
-  letter-spacing: 2px;
-
+.navbar {
+  height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
-
-header h2 {
-
-  color: #70c7d5;
-
-  margin: 12px 0;
-
+.logo {
+  font:800 24px 'Manrope',sans-serif;
+  letter-spacing:-2px;
 }
-
-header p {
-
-  color: #d4deeb;
-
-}
-
-nav {
-
-  background: #172943;
-
-  padding: 15px;
-
-  text-align: center;
-
-}
-
+.logo span {color:var(--blue)}
+nav {display:flex;align-items:center;gap:28px}
 nav a {
-
-  color: white;
-
-  text-decoration: none;
-
-  margin: 10px;
-
-  font-size: 14px;
-
+  color:#bdc8d7;
+  font-size:12px;
+  transition:.3s;
+}
+nav a:hover {color:var(--blue)}
+.nav-contact {
+  border:1px solid rgba(145,191,255,.4);
+  padding:9px 15px;
+}
+.menu {
+  display:none;
+  color:white;
+  background:none;
+  border:1px solid var(--line);
+  padding:8px 12px;
+  cursor:pointer;
 }
 
-section {
+/* ACCUEIL */
 
-  max-width: 850px;
-
-  margin: 35px auto;
-
-  padding: 30px;
-
-  background: white;
-
-  border-radius: 10px;
-
+.hero {
+  min-height:690px;
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  align-items:center;
+  gap:45px;
+  padding:90px 0;
+}
+.eyebrow {
+  color:var(--blue);
+  font-size:10px;
+  letter-spacing:3px;
+  font-weight:700;
+}
+.hero h1 {
+  font:800 clamp(55px,8vw,100px)/1 'Manrope',sans-serif;
+  letter-spacing:-7px;
+  margin:28px 0;
+}
+.hero h1 span {
+  display:block;
+  color:var(--blue);
+}
+.hero h2 {
+  font-size:17px;
+  font-weight:500;
+  color:#d4dfed;
+}
+.hero p {
+  max-width:550px;
+  margin-top:20px;
+  color:var(--muted);
+  font-size:14px;
+}
+.buttons {
+  display:flex;
+  flex-wrap:wrap;
+  gap:13px;
+  margin-top:32px;
+}
+.btn {
+  display:inline-block;
+  padding:13px 20px;
+  background:var(--blue);
+  color:#08111f;
+  font-size:12px;
+  font-weight:700;
+  transition:.3s;
+}
+.btn:hover {
+  background:white;
+  transform:translateY(-3px);
+}
+.btn-outline {
+  background:transparent;
+  border:1px solid var(--line);
+  color:white;
+}
+.btn-outline:hover {
+  background:var(--panel);
+  color:var(--blue);
 }
 
-h3 {
+/* VISUEL */
 
-  color: #245b91;
-
-  margin-bottom: 15px;
-
+.visual {
+  min-height:400px;
+  display:grid;
+  place-items:center;
+  position:relative;
+}
+.visual::before,
+.visual::after {
+  content:"";
+  position:absolute;
+  border:1px solid rgba(145,191,255,.18);
+  border-radius:50%;
+  aspect-ratio:1;
+}
+.visual::before {width:300px}
+.visual::after {
+  width:410px;
+  border-style:dashed;
+}
+.orb {
+  position:absolute;
+  width:250px;
+  height:250px;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#314d70,#101a2b 70%);
+  box-shadow:0 0 90px rgba(80,135,200,.13);
+}
+.monogram {
+  position:relative;
+  font:800 95px 'Manrope',sans-serif;
+  letter-spacing:-12px;
+  color:#e2edfc;
+  text-shadow:0 0 40px rgba(145,191,255,.3);
+}
+.orbit {
+  position:absolute;
+  color:#9fb9d8;
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+.orbit.one {top:8%;right:0}
+.orbit.two {bottom:8%;left:0}
+.status {
+  position:absolute;
+  bottom:2%;
+  right:0;
+  background:var(--panel);
+  border:1px solid var(--line);
+  padding:10px 14px;
+  font-size:10px;
+  color:#d5e1ef;
 }
 
-ul {
+/* SECTIONS */
 
-  padding-left: 22px;
-
+section:not(.hero) {padding:95px 0}
+.section-heading {margin-bottom:45px}
+.section-heading small {
+  color:var(--blue);
+  letter-spacing:3px;
+  font-size:10px;
 }
+.section-heading h2 {
+  font:700 clamp(35px,5vw,55px)/1.15 'Manrope',sans-serif;
+  letter-spacing:-2px;
+  margin-top:15px;
+}
+.section-heading p {
+  color:var(--muted);
+  font-size:13px;
+  margin-top:14px;
+}
+.dark {background:#0c1422}
+
+/* À PROPOS */
+
+.about-grid {
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:65px;
+  align-items:start;
+}
+.about-text p {
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:20px;
+}
+.about-text .lead {
+  color:#edf3fb;
+  font:500 20px/1.6 'Manrope',sans-serif;
+}
+.profile {
+  background:linear-gradient(145deg,#142137,#0d1726);
+  border:1px solid var(--line);
+  padding:30px;
+}
+.initials {
+  width:60px;
+  height:60px;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--blue);
+  color:var(--blue);
+  font:700 20px 'Manrope',sans-serif;
+  margin-bottom:22px;
+}
+.profile h3 {
+  font:700 22px 'Manrope',sans-serif;
+}
+.profile p {
+  color:var(--muted);
+  font-size:12px;
+}
+.profile ul {
+  list-style:none;
+  margin-top:22px;
+}
+.profile li {
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:12px 0;
+  border-top:1px solid var(--line);
+  font-size:11px;
+}
+.profile li span:first-child {color:var(--muted)}
+.profile li span:last-child {text-align:right}
+
+/* FORMATION */
+
+.timeline {
+  border-left:1px solid var(--blue);
+  padding-left:30px;
+  max-width:850px;
+}
+.timeline-item {
+  position:relative;
+  margin-bottom:42px;
+}
+.timeline-item::before {
+  content:"";
+  position:absolute;
+  left:-37px;
+  top:7px;
+  width:11px;
+  height:11px;
+  background:var(--blue);
+  border-radius:50%;
+  outline:4px solid #0c1422;
+}
+.timeline-item small {
+  color:var(--blue);
+  letter-spacing:2px;
+  font-size:10px;
+}
+.timeline-item h3 {
+  font:600 19px 'Manrope',sans-serif;
+  margin:12px 0;
+}
+.timeline-item p {
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* COMPÉTENCES ET PROJETS */
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:17px;
+}
+.card {
+  background:var(--panel);
+  border:1px solid var(--line);
+  padding:27px;
+  transition:.3s;
+}
+.card:hover {
+  transform:translateY(-6px);
+  border-color:var(--blue);
+}
+.number {
+  color:var(--blue);
+  font-size:11px;
+  letter-spacing:2px;
+}
+.card h3 {
+  font:600 19px 'Manrope',sans-serif;
+  margin:22px 0 10px;
+}
+.card p {
+  color:var(--muted);
+  font-size:12px;
+}
+.tags {
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:20px;
+}
+.tags span {
+  border:1px solid rgba(145,191,255,.25);
+  color:#c1d9f7;
+  padding:5px 9px;
+  font-size:10px;
+}
+.project {
+  background:var(--panel);
+  border:1px solid var(--line);
+  transition:.3s;
+}
+.project:hover {
+  transform:translateY(-5px);
+  border-color:var(--blue);
+}
+.project-visual {
+  height:170px;
+  display:grid;
+  place-items:center;
+  background:radial-gradient(circle at center,#294461,#111d2e);
+  color:var(--blue);
+  font:700 48px 'Manrope',sans-serif;
+}
+.project-info {padding:25px}
+.project-info small {
+  color:var(--blue);
+  letter-spacing:2px;
+  font-size:9px;
+}
+.project-info h3 {
+  font:600 21px 'Manrope',sans-serif;
+  margin:10px 0;
+}
+.project-info p {
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* LANGUES */
+
+.languages {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.languages span {
+  padding:12px 20px;
+  border:1px solid var(--line);
+  background:var(--panel);
+  font-size:13px;
+}
+
+/* AMBITION */
+
+.ambition {
+  text-align:center;
+  background:radial-gradient(ellipse at top,#192e49,#080d18 70%);
+}
+.ambition h2 {
+  font:800 clamp(38px,6vw,65px)/1.1 'Manrope',sans-serif;
+  letter-spacing:-3px;
+  margin:25px 0;
+}
+.ambition h2 span {color:var(--blue)}
+.ambition p {
+  max-width:700px;
+  margin:auto;
+  color:var(--muted);
+  font-size:14px;
+}
+.keywords {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:30px;
+}
+.keywords span {
+  padding:9px 15px;
+  border:1px solid rgba(145,191,255,.3);
+  color:#c6dcf8;
+  font-size:11px;
+}
+
+/* CONTACT */
+
+.contact-box {
+  background:var(--panel);
+  border:1px solid var(--line);
+  padding:35px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.contact-box h3 {
+  font:600 21px 'Manrope',sans-serif;
+}
+.contact-box p {
+  color:var(--muted);
+  font-size:13px;
+  margin-top:8px;
+}
+
+/* FOOTER */
 
 footer {
-
-  background: #101b2d;
-
-  color: white;
-
-  text-align: center;
-
-  padding: 25px;
-
-  margin-top: 50px;
-
+  padding:28px 0;
+  border-top:1px solid var(--line);
+  color:#8796a9;
+  font-size:11px;
+}
+.footer-inner {
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
 }
 
-.signature {
+/* ANIMATIONS */
 
-  color: #70c7d5;
-
-  font-weight: bold;
-
+.reveal {
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity .7s ease,transform .7s ease;
+}
+.reveal.visible {
+  opacity:1;
+  transform:translateY(0);
 }
 
+/* RESPONSIVE */
+
+@media(max-width:850px) {
+  .hero {grid-template-columns:1fr;padding:75px 0}
+  .about-grid {grid-template-columns:1fr;gap:35px}
+  .grid {grid-template-columns:repeat(2,1fr)}
+  .visual {min-height:350px}
+}
+@media(max-width:650px) {
+  .menu {display:block}
+  nav {
+    display:none;
+    position:absolute;
+    top:76px;
+    left:0;
+    width:100%;
+    padding:25px 6%;
+    background:#0d1726;
+    border-bottom:1px solid var(--line);
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  nav.open {display:flex}
+  .hero h1 {font-size:60px;letter-spacing:-4px}
+  .grid {grid-template-columns:1fr}
+  section:not(.hero) {padding:70px 0}
+  .contact-box,.footer-inner {
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .visual::before {width:240px}
+  .visual::after {width:320px}
+  .orb {width:200px;height:200px}
+  .monogram {font-size:75px}
+}
+@media(prefers-reduced-motion:reduce) {
+  * {scroll-behavior:auto!important;transition:none!important}
+  .reveal {opacity:1;transform:none}
+}
 </style>
-
 </head>
 
 <body>
 
 <header>
+  <div class="container navbar">
+    <a href="#accueil" class="logo">RT<span>.</span></a>
 
-  <h1>RICHARD TOHOUN</h1>
+    <nav id="navigation">
+      <a href="#apropos">À propos</a>
+      <a href="#parcours">Parcours</a>
+      <a href="#competences">Compétences</a>
+      <a href="#projets">Projets</a>
+      <a href="#contact" class="nav-contact">Contact ↗</a>
+    </nav>
 
-  <h2>Sentinelle numérique 🛡️</h2>
-
-  <p>Étudiant en informatique | Cybersécurité</p>
-
-  <p>Bénin 🇧🇯</p>
-
+    <button class="menu" id="menuBtn" aria-label="Ouvrir le menu">☰</button>
+  </div>
 </header>
 
-<nav>
+<main>
 
-  <a href="#apropos">À propos</a>
+<div class="container">
+<section class="hero" id="accueil">
 
-  <a href="#parcours">Parcours</a>
+  <div class="reveal">
+    <div class="eyebrow">PORTFOLIO PERSONNEL · BÉNIN 🇧🇯</div>
 
-  <a href="#competences">Compétences</a>
+    <h1>Richard<span>TOHOUN.</span></h1>
 
-  <a href="#projets">Projets</a>
+    <h2>Étudiant en informatique · Sécurité informatique</h2>
 
-</nav>
+    <p>
+      Je construis progressivement mon parcours dans l'informatique,
+      avec un intérêt particulier pour la sécurité des systèmes et
+      la cybersécurité. Apprendre, comprendre et contribuer à un
+      environnement numérique plus sûr : telle est ma direction.
+    </p>
 
-<section id="apropos">
+    <div class="buttons">
+      <a href="#projets" class="btn">DÉCOUVRIR MES PROJETS ↘</a>
+      <a href="#apropos" class="btn btn-outline">MON PROFIL</a>
+    </div>
+  </div>
 
-  <h3>À propos</h3>
-
-  <p>
-
-    Richard TOHOUN est un étudiant béninois en informatique,
-
-    particulièrement intéressé par la sécurité informatique
-
-    et les nouvelles technologies.
-
-  </p>
-
-  <br>
-
-  <p>
-
-    Curieux, sociable et passionné par l'apprentissage,
-
-    il développe progressivement ses connaissances en
-
-    programmation, réseaux informatiques et cybersécurité.
-
-  </p>
-
-  <br>
-
-  <p>
-
-    Sa signature personnelle, <span class="signature">
-
-    « Sentinelle numérique »</span>, représente son ambition
-
-    de contribuer à la protection des systèmes et des
-
-    infrastructures numériques.
-
-  </p>
+  <div class="visual reveal">
+    <div class="orb"></div>
+    <div class="monogram">RT</div>
+    <div class="orbit one">DIGITAL SECURITY</div>
+    <div class="orbit two">CURIOSITÉ · RIGUEUR</div>
+    <div class="status">● EN FORMATION, EN ÉVOLUTION</div>
+  </div>
 
 </section>
+</div>
 
-<section id="parcours">
+<section id="apropos">
+<div class="container">
 
-  <h3>Parcours académique</h3>
+  <div class="section-heading reveal">
+    <small>01 / À PROPOS</small>
+    <h2>Apprendre avec intention.<br>Évoluer avec ambition.</h2>
+    <p>Découvrir mon profil, mon approche et mes aspirations.</p>
+  </div>
 
-  <ul>
+  <div class="about-grid">
 
-    <li>
+    <div class="about-text reveal">
+      <p class="lead">
+        Je suis Richard TOHOUN, étudiant béninois en informatique
+        à l'Institut de Formation et de Recherche en Informatique (IFRI).
+      </p>
 
-      <strong>2026 – Présent :</strong>
+      <p>
+        Issu d'une formation technique en Installation et Maintenance
+        Informatique, je poursuis aujourd'hui mon apprentissage dans
+        le domaine de la sécurité informatique.
+      </p>
 
-      Études en informatique, orientation sécurité informatique,
+      <p>
+        Je m'intéresse au fonctionnement des systèmes, aux risques
+        auxquels ils sont exposés et aux moyens de mieux les protéger.
+        Je considère chaque projet et chaque expérience comme une
+        occasion de progresser.
+      </p>
 
-      à l'Institut de Formation et de Recherche en Informatique (IFRI).
+      <p>
+        Curieux, sociable et ouvert sur le monde, j'apprécie également
+        le travail en équipe, le partage de connaissances et la
+        découverte de nouvelles technologies.
+      </p>
+    </div>
 
-    </li>
+    <div class="profile reveal">
+      <div class="initials">RT</div>
+      <h3>Richard TOHOUN</h3>
+      <p>Étudiant en informatique</p>
 
-    <li>
+      <ul>
+        <li>Établissement <span>IFRI</span></li>
+        <li>Formation <span>Licence informatique</span></li>
+        <li>Orientation <span>Sécurité informatique</span></li>
+        <li>Nationalité <span>Béninoise 🇧🇯</span></li>
+        <li>Pays <span>Bénin</span></li>
+      </ul>
+    </div>
 
-      <strong>2026 :</strong>
+  </div>
+</div>
+</section>
 
-      Diplôme Technique en Installation et Maintenance Informatique
+<section class="dark" id="parcours">
+<div class="container">
 
-      (DT/IMI), mention Bien, au Lycée Technique d'Amitié
+  <div class="section-heading reveal">
+    <small>02 / PARCOURS</small>
+    <h2>Un parcours en construction.</h2>
+    <p>Une base technique sur laquelle je continue de bâtir mes compétences.</p>
+  </div>
 
-      Sino-Béninoise d'Akassato.
+  <div class="timeline">
 
-    </li>
+    <div class="timeline-item reveal">
+      <small>2026 · DIPLÔME OBTENU</small>
+      <h3>Diplôme Technique en Installation et Maintenance Informatique</h3>
+      <p>
+        Lycée Technique d'Amitié Sino-Béninoise d'Akassato (LT-ASBA).
+        Diplôme DT/IMI obtenu avec la mention Bien.
+      </p>
+    </div>
 
-    <li>
+    <div class="timeline-item reveal">
+      <small>DEPUIS 2026 · ÉTUDES SUPÉRIEURES</small>
+      <h3>Institut de Formation et de Recherche en Informatique</h3>
+      <p>
+        Licence informatique, avec une orientation en sécurité informatique.
+        Approfondissement progressif des fondamentaux de l'informatique
+        et des domaines liés à la cybersécurité.
+      </p>
+    </div>
 
-      <strong>2025 :</strong>
-
-      Formation pratique en maintenance et réseaux informatiques,
-
-      Access, SQL et langage C à CITECH SARL.
-
-    </li>
-
-  </ul>
-
+  </div>
+</div>
 </section>
 
 <section id="competences">
+<div class="container">
 
-  <h3>Compétences techniques</h3>
+  <div class="section-heading reveal">
+    <small>03 / COMPÉTENCES</small>
+    <h2>Mes bases techniques.</h2>
+    <p>Des connaissances et des outils que je mobilise dans mes apprentissages.</p>
+  </div>
 
-  <ul>
+  <div class="grid">
 
-    <li>HTML et CSS</li>
+    <article class="card reveal">
+      <div class="number">01 — DÉVELOPPEMENT</div>
+      <h3>Développement web</h3>
+      <p>Création de pages et développement de fonctionnalités web.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span><span>PHP</span></div>
+    </article>
 
-    <li>PHP</li>
+    <article class="card reveal">
+      <div class="number">02 — DONNÉES</div>
+      <h3>Bases de données</h3>
+      <p>Initiation à la structuration et à la gestion des données.</p>
+      <div class="tags"><span>MySQL</span><span>SQL</span><span>Access</span></div>
+    </article>
 
-    <li>SQL et MySQL</li>
+    <article class="card reveal">
+      <div class="number">03 — INFRASTRUCTURE</div>
+      <h3>Maintenance & réseaux</h3>
+      <p>Connaissances techniques en maintenance informatique et réseaux.</p>
+      <div class="tags"><span>Maintenance</span><span>Réseaux</span></div>
+    </article>
 
-    <li>Microsoft Access</li>
+    <article class="card reveal">
+      <div class="number">04 — CRÉATION</div>
+      <h3>Conception graphique</h3>
+      <p>Réalisation et retouche de supports visuels.</p>
+      <div class="tags"><span>Photoshop</span><span>Illustrator</span></div>
+    </article>
 
-    <li>Maintenance informatique</li>
+    <article class="card reveal">
+      <div class="number">05 — APPRENTISSAGE</div>
+      <h3>Analyse & résolution</h3>
+      <p>Décomposition de problèmes et recherche de solutions techniques.</p>
+      <div class="tags"><span>Algorithmique</span><span>Logique</span></div>
+    </article>
 
-    <li>Réseaux informatiques</li>
-
-    <li>Adobe Photoshop et Illustrator</li>
-
-  </ul>
-
+  </div>
+</div>
 </section>
 
-<section id="projets">
+<section class="dark" id="projets">
+<div class="container">
 
-  <h3>Projets informatiques</h3>
+  <div class="section-heading reveal">
+    <small>04 / RÉALISATIONS</small>
+    <h2>Des idées mises en pratique.</h2>
+    <p>Quelques projets qui témoignent de mon intérêt pour les solutions numériques.</p>
+  </div>
 
-  <ul>
+  <div class="grid">
 
-    <li>Application de gestion de stock avec PHP et MySQL.</li>
+    <article class="project reveal">
+      <div class="project-visual">01</div>
+      <div class="project-info">
+        <small>APPLICATION WEB</small>
+        <h3>Gestion de stock</h3>
+        <p>
+          Application de gestion de stock développée avec PHP et MySQL,
+          avec différents niveaux d'accès selon le rôle de l'utilisateur.
+        </p>
+        <div class="tags"><span>PHP</span><span>MySQL</span></div>
+      </div>
+    </article>
 
-    <li>Projet de site web du LT-ASBA.</li>
+    <article class="project reveal">
+      <div class="project-visual">&lt;/&gt;</div>
+      <div class="project-info">
+        <small>CONCEPTION WEB</small>
+        <h3>LT-ASBA</h3>
+        <p>
+          Projet de conception d'un site web consacré au Lycée Technique
+          d'Amitié Sino-Béninoise d'Akassato.
+        </p>
+        <div class="tags"><span>HTML</span><span>CSS</span><span>Web</span></div>
+      </div>
+    </article>
 
-    <li>ParkSnap, projet numérique personnel.</li>
+    <article class="project reveal">
+      <div class="project-visual">03</div>
+      <div class="project-info">
+        <small>PROJET NUMÉRIQUE</small>
+        <h3>ParkSnap</h3>
+        <p>
+          Projet de solution numérique autour du stationnement
+          et de l'expérience utilisateur.
+        </p>
+        <div class="tags"><span>Innovation</span><span>Digital</span></div>
+      </div>
+    </article>
 
-  </ul>
-
+  </div>
+</div>
 </section>
 
-<section>
+<section id="langues">
+<div class="container">
 
-  <h3>Langues</h3>
+  <div class="section-heading reveal">
+    <small>05 / LANGUES</small>
+    <h2>Ouvert aux échanges.</h2>
+    <p>Les langues font partie de ma curiosité et de mon ouverture sur les autres.</p>
+  </div>
+
+  <div class="languages reveal">
+    <span>Français</span>
+    <span>Anglais</span>
+    <span>Fon</span>
+    <span>Adja</span>
+    <span>Mina</span>
+  </div>
+
+</div>
+</section>
+
+<section class="ambition">
+<div class="container reveal">
+
+  <small class="eyebrow">06 / MA VISION</small>
+
+  <h2>Devenir une<br><span>sentinelle numérique.</span></h2>
 
   <p>
-
-    Français · Anglais · Fon · Adja · Minan
-
+    Mon ambition est de me spécialiser dans la cybersécurité et
+    de contribuer, avec méthode et responsabilité, à la protection
+    des systèmes d'information et des infrastructures numériques.
   </p>
 
+  <div class="keywords">
+    <span>Observer</span>
+    <span>Comprendre</span>
+    <span>Détecter</span>
+    <span>Analyser</span>
+    <span>Protéger</span>
+  </div>
+
+</div>
 </section>
 
-<section>
+<section id="contact">
+<div class="container">
 
-  <h3>Ambition professionnelle</h3>
+  <div class="section-heading reveal">
+    <small>07 / CONTACT</small>
+    <h2>Faisons connaissance.</h2>
+    <p>Un échange autour de l'informatique, d'un projet ou des technologies est toujours le bienvenu.</p>
+  </div>
 
-  <p>
+  <div class="contact-box reveal">
+    <div>
+      <h3>Une idée, une question ou une collaboration ?</h3>
+      <p>Retrouvons-nous autour de nos intérêts communs.</p>
+    </div>
+    <a href="https://richardtohoun.github.io" target="_blank" rel="noopener noreferrer" class="btn">
+      VISITER MON SITE ↗
+    </a>
+  </div>
 
-    Construire un parcours dans la cybersécurité et développer
-
-    les compétences nécessaires pour contribuer à la détection,
-
-    à l'analyse et à la prévention des cybermenaces.
-
-  </p>
-
-  <br>
-
-  <p class="signature">
-
-    Observer. Détecter. Anticiper. Protéger.
-
-  </p>
-
+</div>
 </section>
+
+</main>
 
 <footer>
-
-  <p>© 2026 Richard TOHOUN</p>
-
-  <p>Sentinelle numérique 🛡️</p>
-
-  <p>Bénin 🇧🇯</p>
-
+<div class="container footer-inner">
+  <p>© <span id="year">2026</span> Richard TOHOUN. Tous droits réservés.</p>
+  <p>Construire aujourd'hui. Protéger demain. 🇧🇯</p>
+</div>
 </footer>
 
-</body>
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const navigation = document.getElementById('navigation');
 
+menuBtn.addEventListener('click', () => {
+  navigation.classList.toggle('open');
+  menuBtn.textContent =
+    navigation.classList.contains('open') ? '✕' : '☰';
+});
+
+navigation.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navigation.classList.remove('open');
+    menuBtn.textContent = '☰';
+  });
+});
+
+document.getElementById('year').textContent =
+  new Date().getFullYear();
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, {threshold:0.12});
+
+document.querySelectorAll('.reveal').forEach(element => {
+  observer.observe(element);
+});
+</script>
+
+</body>
 </html>
